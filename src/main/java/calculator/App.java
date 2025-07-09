@@ -23,6 +23,7 @@ public class App {
             char symbol = sc.next().charAt(0);
 
             int result = 0;
+            String errMsg = "";
             // 사칙연산 기호 별로 연산
             switch (symbol) {
                 case '+':
@@ -38,13 +39,21 @@ public class App {
                     // 분모 0 거르기
                     if (num2 == 0) {
                         System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                        // 이 경우 result 결과값이 없으므로
+                        errMsg = "나눗셈 오류";
                         break;
                     }
                     result = num1 / num2;
                     break;
             }
             // 결과값 출력
-            System.out.println("결과 : " + result);
+
+            if (errMsg.equals("나눗셈 오류")){
+                System.out.println("결과 : " + errMsg);
+            } else {
+                System.out.println("결과 : " + result);
+            }
+
 
             // indexCounter로 10개 초과하는 경우를 확인
             if (indexCounter == resultArr.length) {
