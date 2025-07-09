@@ -7,6 +7,8 @@ public class App {
     public static void main(String[] args) {
         // 입력
         Scanner sc = new Scanner(System.in);
+        int[] resultArr = new int[10];
+        int indexCounter = 0;
 
         while(true){
             // 첫번째 숫자 입력 받기
@@ -41,6 +43,8 @@ public class App {
             }
             System.out.println("결과 : " + result);
 
+            resultArr[indexCounter] = result;
+            indexCounter++;
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String stopMsg = sc.next();
