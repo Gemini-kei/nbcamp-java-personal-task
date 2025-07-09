@@ -13,6 +13,7 @@ public class App {
         // List 생성
         List<Integer> resultList = new ArrayList<>();
         String removeMsg;
+        String inquiryMsg;
 //        int[] resultArr = new int[10];
 //        int indexCounter = 0;
 
@@ -66,6 +67,13 @@ public class App {
                 resultList.remove(0);
             }
 
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            inquiryMsg = sc.next();
+            if (inquiryMsg.equals("inquiry")){
+                for(int i: resultList) {
+                    System.out.println(i); //값을 출력
+                }
+            }
 
 //            // indexCounter로 10개 초과하는 경우를 확인
 //            if (indexCounter == resultArr.length) {
