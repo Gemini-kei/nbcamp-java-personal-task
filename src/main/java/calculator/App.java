@@ -23,6 +23,7 @@ public class App {
             char symbol = sc.next().charAt(0);
 
             int result = 0;
+            // 사칙연산 기호 별로 연산
             switch (symbol) {
                 case '+':
                     result = num1 + num2;
@@ -34,6 +35,7 @@ public class App {
                     result = num1 * num2;
                     break;
                 case '/':
+                    // 분모 0 거르기
                     if (num2 == 0) {
                         System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                         break;
@@ -41,13 +43,26 @@ public class App {
                     result = num1 / num2;
                     break;
             }
+            // 결과값 출력
             System.out.println("결과 : " + result);
 
+            // indexCounter로 10개 초과하는 경우를 확인
+            if (indexCounter == resultArr.length) {
+                // 가장 먼저 저장된 값부터 삭제하면서 한칸씩 앞으로 이동
+                for (int i = 0; i < resultArr.length-1; i++) {
+                    resultArr[i] = resultArr[i+1];
+                }
+                // 위치 조정
+                indexCounter--;
+            }
+            // index 마지막(9)에 다시 현재 결과값 저장
             resultArr[indexCounter] = result;
             indexCounter++;
 
+            // exit 입력 받기
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String stopMsg = sc.next();
+            // exit 일 경우 반복문 종료
             if (stopMsg.equals("exit")) {
                 break;
             }
